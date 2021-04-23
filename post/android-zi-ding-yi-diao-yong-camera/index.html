@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Android自定义调用Camera | Blog_qxy</title>
+<title>Android调用Camera | Blog_qxy</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1619164149861">
+<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1619173542717">
 <link rel="stylesheet" href="https://WhiteBlacken.github.io//styles/main.css">
 
 
@@ -18,21 +18,15 @@
 
 
 
-    <meta name="description" content="
+    <meta name="description" content="两种方式
 
+调用系统的相机app（简单）
+自定义使用Camera（灵活性高）
 
-1
-1
+调用系统相机
 
-
-
-
-2
-2
-
-
-
-" />
+直接使用 new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+通过data获取的为缩略图，想要获得原图要通过..." />
     <meta name="keywords" content="Andriod" />
   </head>
   <body>
@@ -42,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://WhiteBlacken.github.io/">
-        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1619164149861" class="site-logo">
+        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1619173542717" class="site-logo">
         <h1 class="site-title">Blog_qxy</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,24 +98,28 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Android自定义调用Camera</h2>
+            <h2 class="post-title">Android调用Camera</h2>
             <div class="post-date">2021-04-23</div>
             
             <div class="post-content" v-pre>
-              <table>
-<thead>
-<tr>
-<th>1</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
+              <h2 id="两种方式">两种方式</h2>
+<ul>
+<li>调用系统的相机app（简单）</li>
+<li>自定义使用Camera（灵活性高）</li>
+</ul>
+<h2 id="调用系统相机">调用系统相机</h2>
+<ul>
+<li>直接使用 <strong>new Intent(MediaStore.ACTION_IMAGE_CAPTURE)</strong></li>
+<li>通过data获取的为缩略图，想要获得原图要通过文件路径读取文件。</li>
+<li>使用外部文件要添加读写权限</li>
+</ul>
+<h2 id="自定义使用camera">自定义使用Camera</h2>
+<h2 id="待解决">待解决</h2>
+<ul>
+<li>android读取相机拍摄文件崩溃？</li>
+<li>bitmap,bundle?getExtras()?putExtra()</li>
+<li>生命周期，如onResume，onPasue</li>
+</ul>
 
             </div>
             
