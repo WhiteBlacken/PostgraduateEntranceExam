@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://WhiteBlacken.github.io/</id>
     <title>Blog_qxy</title>
-    <updated>2021-04-23T15:31:32.794Z</updated>
+    <updated>2021-04-24T08:04:26.235Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://WhiteBlacken.github.io/"/>
     <link rel="self" href="https://WhiteBlacken.github.io/atom.xml"/>
@@ -25,9 +25,185 @@
 <ul>
 <li>直接使用 <strong>new Intent(MediaStore.ACTION_IMAGE_CAPTURE)</strong></li>
 <li>通过data获取的为缩略图，想要获得原图要通过文件路径读取文件。</li>
-<li>使用外部文件要添加读写权限</li>
 </ul>
 <h2 id="自定义使用camera">自定义使用Camera</h2>
+<h3 id="过程">过程</h3>
+<ul>
+<li>创建相机</li>
+<li>创建SurfaceView</li>
+<li>关联相机和SurfaceView</li>
+<li>调整相机的显示效果</li>
+<li>自定义相机预览界面</li>
+</ul>
+<h3 id="权限问题">权限问题</h3>
+<ul>
+<li>运行时权限需要自己手动在设置中打开</li>
+<li>访问外部存储器时要在AndroidManifest.xml文件的application 标签下加上android:requestLegacyExternalStorage=&quot;true&quot;</li>
+</ul>
+<h3 id="代码">代码</h3>
+<h4 id="拍摄及预览">拍摄及预览</h4>
+<pre><code class="language-java">public class PersonShot extends AppCompatActivity implements SurfaceHolder.Callback{
+    private Camera mCamera;
+    private SurfaceView mPreview;
+    private SurfaceHolder mHolder;
+    private Camera.PictureCallback mPictureCallBack = new Camera.PictureCallback() {
+        @Override
+        public void onPictureTaken(byte[] bytes, Camera camera) {
+            //创建文件地址
+            String timeStamp = new SimpleDateFormat(&quot;yyyyMMdd_HHmmss&quot;, Locale.getDefault()).format(new Date());//格式化时间戳
+            String rootPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath();
+            File tempFile = new File(rootPath + File.separator + timeStamp + &quot;.png&quot;);
+            try {
+                FileOutputStream fos = new FileOutputStream(tempFile);
+                fos.write(bytes);
+                fos.close();
+                //此处跳转到ResultActivity来显示拍摄的照片
+                Intent intent = new Intent(PersonShot.this, ResultActivity.class);
+                intent.putExtra(&quot;picPath&quot;,tempFile.getAbsolutePath());
+                startActivity(intent);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_person_shot);
+//        checkNeedPermissions();
+        mPreview = findViewById(R.id.preview);
+        mHolder = mPreview.getHolder();
+        mHolder.addCallback(this);
+        //点击屏幕聚焦
+        mPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCamera.autoFocus(null);
+            }
+        });
+    }
+    //拍摄功能
+    public void capture(View view) {
+        Camera.Parameters parameters = mCamera.getParameters();
+        parameters.setPictureFormat(ImageFormat.JPEG);
+        parameters.setPreviewSize(800,400);
+        //需要相机支持自动对焦
+        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+        mCamera.autoFocus(new Camera.AutoFocusCallback() {
+            @Override
+            public void onAutoFocus(boolean b, Camera camera) {
+                if(b){
+                    mCamera.takePicture(null,null,mPictureCallBack);
+                }
+            }
+        });
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(mCamera==null){
+            mCamera = getCamera();
+            if(mHolder!=null){
+                setStartPreview(mCamera,mHolder);
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        releaseCamera();
+    }
+
+    /**
+     * 获取camera对象
+     * @return
+     */
+    private Camera getCamera(){
+        Camera camera;
+        try {
+            camera = Camera.open();
+        }catch(Exception e){
+            camera = null;
+            e.printStackTrace();
+        }
+        return camera;
+    }
+
+    /**
+     * 开始预览相机内容
+     */
+    private void setStartPreview(Camera camera,SurfaceHolder holder){
+        try {
+            camera.setPreviewDisplay(holder);
+            //初始横屏，旋转90度
+            camera.setDisplayOrientation(90);
+            camera.startPreview();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    /**
+     * 释放相机资源
+     */
+    private void releaseCamera(){
+        if(mCamera!=null) {
+            mCamera.setPreviewCallback(null);
+            mCamera.stopPreview();
+            mCamera.release();
+            mCamera = null;
+        }
+    }
+
+    //surfaceHolder的三个回调方法
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        setStartPreview(mCamera,mHolder);
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+        mCamera.stopPreview();
+        setStartPreview(mCamera,mHolder);
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        releaseCamera();
+    }
+</code></pre>
+<h4 id="获取已拍摄图片">获取已拍摄图片</h4>
+<pre><code class="language-java">public class ResultActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_result);
+        String path = getIntent().getStringExtra(&quot;picPath&quot;);
+        ImageView iv = findViewById(R.id.pic);
+        //解决旋转问题
+        Matrix matrix = new Matrix();
+        matrix.setRotate(90);
+        try {
+            FileInputStream fis = new FileInputStream(path);
+            Bitmap bitmap = BitmapFactory.decodeStream(fis);
+            bitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+            iv.setImageBitmap(bitmap);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        //不需要旋转的简化版本
+//        Bitmap bitmap = BitmapFactory.decodeFile(path);
+//        iv.setImageBitmap(bitmap);
+    }
+
+}
+</code></pre>
 <h2 id="待解决">待解决</h2>
 <ul>
 <li>android读取相机拍摄文件崩溃？</li>
