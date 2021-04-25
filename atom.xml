@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://WhiteBlacken.github.io/</id>
     <title>Blog_qxy</title>
-    <updated>2021-04-25T07:50:29.432Z</updated>
+    <updated>2021-04-25T10:54:49.238Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://WhiteBlacken.github.io/"/>
     <link rel="self" href="https://WhiteBlacken.github.io/atom.xml"/>
@@ -46,6 +46,144 @@
 <li>键值对存储</li>
 </ul>
 </li>
+</ul>
+<h2 id="sqlite">Sqlite</h2>
+<h3 id="使用场景">使用场景</h3>
+<ul>
+<li>嵌入式设备：计算机、手表</li>
+</ul>
+<h3 id="特点">特点</h3>
+<ul>
+<li>嵌入式数据库，体积小，功能强大</li>
+<li>数据类型
+<ul>
+<li>NULL</li>
+<li>INTEGER</li>
+<li>REAL（浮点数字）</li>
+<li>TEXT（字符串文本）</li>
+<li>BLOB（二进制）</li>
+<li>也支持其他比如varchar(n),char(n),decimal(p,s)，但是最终会转成前五种数据类型</li>
+</ul>
+</li>
+<li>主键必须为INTEGER，主键要求为_id（标准）或者id</li>
+<li>底层sqlite.c动态创建数据库</li>
+</ul>
+<h3 id="使用的库">使用的库</h3>
+<ul>
+<li>SqliteOpenHelper</li>
+</ul>
+<h3 id="使用过程">使用过程</h3>
+<ul>
+<li>
+<p>创建一个类实现SqliteOpenHelper接口</p>
+<pre><code class="language-java">//工具类
+//单例模式：1 构造函数初始化 2.对外提供函数
+  public class MySqliteOpenHelper extends SQLiteOpenHelper {
+
+      //单例模式
+      private static SQLiteOpenHelper mInstance;
+      public static synchronized SQLiteOpenHelper getInstance(Context context){
+          if(mInstance == null){
+              mInstance = new MySqliteOpenHelper(context,&quot;sqliteOne.db&quot;,null,1);
+          }
+          return mInstance;
+      }
+  //构造函数
+      public MySqliteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+          super(context, name, factory, version);
+      }
+
+      //数据库初始化 数据库第一次创建时访问 只会执行一次
+      @Override
+      public void onCreate(SQLiteDatabase sqLiteDatabase) {
+          String sql = &quot;CREATE TABLE PERSON(_ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT)&quot;;
+          sqLiteDatabase.execSQL(sql);
+      }
+      //数据库升级
+      @Override
+      public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
+      }
+  }
+
+</code></pre>
+</li>
+<li>
+<p>创建数据库</p>
+<pre><code class="language-java">public void createDB(View view) {
+      SQLiteOpenHelper helper = MySqliteOpenHelper.getInstance(this);
+      SQLiteDatabase readableDB = helper.getReadableDatabase();
+  }
+</code></pre>
+</li>
+<li>
+<p>查询数据库</p>
+<pre><code class="language-java">public void queryDB(View view) {
+      SQLiteOpenHelper helper = MySqliteOpenHelper.getInstance(this);
+      SQLiteDatabase db = helper.getReadableDatabase();
+
+      if(db.isOpen()){
+          //返回游标
+          Cursor cursor = db.rawQuery(&quot;SELECT * FROM PERSON&quot;,null);
+          while(cursor.moveToNext()) {
+              int _id = cursor.getInt(cursor.getColumnIndex(&quot;_ID&quot;));
+              String name = cursor.getString(cursor.getColumnIndex(&quot;NAME&quot;));
+
+              Log.e(&quot;this&quot;,&quot;query _id:&quot;+_id+&quot;,name:&quot;+name);
+          }
+          //游标要关闭，否则耗费性能
+          cursor.close();
+          db.close();
+      }
+  }
+</code></pre>
+</li>
+<li>
+<p>插入数据</p>
+<pre><code class="language-java">public void insertDB(View view) {
+      SQLiteOpenHelper helper = MySqliteOpenHelper.getInstance(this);
+      SQLiteDatabase db = helper.getWritableDatabase();
+
+      if(db.isOpen()){
+          String sql = &quot;INSERT INTO PERSON(NAME) VALUES('QXY')&quot;;
+          db.execSQL(sql);
+      }
+      db.close();
+  }
+</code></pre>
+</li>
+<li>
+<p>更新数据库</p>
+<pre><code class="language-java">public void updateDB(View view) {
+      SQLiteOpenHelper helper =  MySqliteOpenHelper.getInstance(this);
+      SQLiteDatabase db = helper.getWritableDatabase();
+
+      if(db.isOpen()){
+          String sql = &quot;UPDATE PERSON SET NAME = ? WHERE _ID = ?&quot;;
+          db.execSQL(sql,new Object[]{&quot;bxy&quot;,5});
+      }
+      db.close();
+  }
+</code></pre>
+</li>
+<li>
+<p>删除记录</p>
+<pre><code class="language-java">public void deleteDB(View view) {
+      SQLiteOpenHelper helper =  MySqliteOpenHelper.getInstance(this);
+      SQLiteDatabase db = helper.getWritableDatabase();
+
+      if(db.isOpen()){
+          String sql = &quot;DELETE FROM PERSON WHERE _ID = ?&quot;;
+          db.execSQL(sql,new Object[]{4});
+      }
+      db.close();
+  }
+</code></pre>
+</li>
+</ul>
+<h2 id="其他问题">其他问题</h2>
+<ul>
+<li>Context详解</li>
 </ul>
 ]]></content>
     </entry>
