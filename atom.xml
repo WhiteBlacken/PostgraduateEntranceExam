@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://WhiteBlacken.github.io/</id>
     <title>Blog_qxy</title>
-    <updated>2021-04-24T08:04:26.235Z</updated>
+    <updated>2021-04-25T04:27:56.620Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://WhiteBlacken.github.io/"/>
     <link rel="self" href="https://WhiteBlacken.github.io/atom.xml"/>
@@ -39,6 +39,20 @@
 <ul>
 <li>运行时权限需要自己手动在设置中打开</li>
 <li>访问外部存储器时要在AndroidManifest.xml文件的application 标签下加上android:requestLegacyExternalStorage=&quot;true&quot;</li>
+</ul>
+<h3 id="选取摄像头">选取摄像头</h3>
+<ul>
+<li>通过Camera.open()  （以华为p30为例）
+<ul>
+<li>不带参数默认前置</li>
+<li>参数0代表前置，参数1代表后置</li>
+</ul>
+</li>
+<li>如何获取当前摄像头的信息？
+<ul>
+<li>数量：<strong>Camera.getNumberOfCameras()</strong>，能否检测到usb有待验证</li>
+</ul>
+</li>
 </ul>
 <h3 id="代码">代码</h3>
 <h4 id="拍摄及预览">拍摄及预览</h4>

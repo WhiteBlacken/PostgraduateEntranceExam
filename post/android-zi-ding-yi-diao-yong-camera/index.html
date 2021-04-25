@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1619251462695">
+<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1619324873106">
 <link rel="stylesheet" href="https://WhiteBlacken.github.io//styles/main.css">
 
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://WhiteBlacken.github.io/">
-        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1619251462695" class="site-logo">
+        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1619324873106" class="site-logo">
         <h1 class="site-title">Blog_qxy</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -128,6 +128,20 @@
 <ul>
 <li>运行时权限需要自己手动在设置中打开</li>
 <li>访问外部存储器时要在AndroidManifest.xml文件的application 标签下加上android:requestLegacyExternalStorage=&quot;true&quot;</li>
+</ul>
+<h3 id="选取摄像头">选取摄像头</h3>
+<ul>
+<li>通过Camera.open()  （以华为p30为例）
+<ul>
+<li>不带参数默认前置</li>
+<li>参数0代表前置，参数1代表后置</li>
+</ul>
+</li>
+<li>如何获取当前摄像头的信息？
+<ul>
+<li>数量：<strong>Camera.getNumberOfCameras()</strong>，能否检测到usb有待验证</li>
+</ul>
+</li>
 </ul>
 <h3 id="代码">代码</h3>
 <h4 id="拍摄及预览">拍摄及预览</h4>
