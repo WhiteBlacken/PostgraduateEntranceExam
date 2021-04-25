@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://WhiteBlacken.github.io/</id>
     <title>Blog_qxy</title>
-    <updated>2021-04-25T04:38:28.551Z</updated>
+    <updated>2021-04-25T07:43:28.331Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://WhiteBlacken.github.io/"/>
     <link rel="self" href="https://WhiteBlacken.github.io/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://WhiteBlacken.github.io/images/avatar.png</logo>
     <icon>https://WhiteBlacken.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blog_qxy</rights>
+    <entry>
+        <title type="html"><![CDATA[Android存储]]></title>
+        <id>https://WhiteBlacken.github.io/post/android-cun-chu/</id>
+        <link href="https://WhiteBlacken.github.io/post/android-cun-chu/">
+        </link>
+        <updated>2021-04-25T04:41:32.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="主流存储方式">主流存储方式</h2>
+<ul>
+<li>sp
+<ul>
+<li>配置信息（记住密码，上次浏览至）</li>
+</ul>
+</li>
+<li>sqlite</li>
+<li>room
+<ul>
+<li>相比较原生sqlite更简洁</li>
+</ul>
+</li>
+</ul>
+<h2 id="shared-preference">Shared Preference</h2>
+<ul>
+<li>使用场景
+<ul>
+<li>自动登录</li>
+<li>记住密码</li>
+<li>主题记录等</li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>不能存在太多信息</li>
+<li>运行时数据会全部加载进内容</li>
+<li>键值对存储</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Android调用Camera]]></title>
         <id>https://WhiteBlacken.github.io/post/android-zi-ding-yi-diao-yong-camera/</id>
