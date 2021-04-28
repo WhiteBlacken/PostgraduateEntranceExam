@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>操作系统 | Blog_qxy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1619582012582">
+<link rel="stylesheet" href="https://WhiteBlacken.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="第一章 概述
+基本概念
+
+定义
+特征
+
+并发
+
+并发 vs 并行
+
+举例
+
+并发：海王交替在wx上和多个妹妹聊天（同一时间段）
+并行：一边复习408一边听周杰伦（同一时刻）
+
+
+实现？
+
+并发：单CPU可以引入进程
+并行：多核CPU，不同C..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://WhiteBlacken.github.io/">
+        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1619582012582" class="site-logo">
+        <h1 class="site-title">Blog_qxy</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      学习ing
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://WhiteBlacken.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">操作系统</h2>
+            <div class="post-date">2021-04-26</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="第一章-概述">第一章 概述</h2>
+<h3 id="基本概念">基本概念</h3>
+<ul>
+<li>定义</li>
+<li>特征
+<ul>
+<li>并发
+<ul>
+<li>并发 vs 并行
+<ul>
+<li>举例
+<ul>
+<li>并发：海王交替在wx上和多个妹妹聊天（同一时间段）</li>
+<li>并行：一边复习408一边听周杰伦（同一时刻）</li>
+</ul>
+</li>
+<li>实现？
+<ul>
+<li>并发：单CPU可以引入进程</li>
+<li>并行：多核CPU，不同CPU同时处理不同的任务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>共享
+<ul>
+<li>系统中资源供多个并发执行的进程共同使用</li>
+<li>共享方式
+<ul>
+<li>举例教室
+<ul>
+<li>教室前有一个时钟，大家都可以同时看，同时访问</li>
+<li>教室里中饮水机同一时间只能一个人用，互斥访问</li>
+<li>思考教室中的座位（教室中一个座位只能坐一位同学）</li>
+</ul>
+</li>
+<li>互斥共享
+<ul>
+<li>临界资源/独占资源
+<ul>
+<li>一段时间内只允许一个进程访问的资源</li>
+<li>多数物理设备（“正在占用摄像头”，打印机），栈，变量，表格</li>
+<li>对临界资源的访问需要满足的原则
+<ul>
+<li>空闲让进</li>
+<li>忙则等待</li>
+<li>有限等待</li>
+<li>让权等待</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>打印机如何体现互斥访问？如何改造成共享设备？
+<ul>
+<li>spooling技术</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>同时访问
+<ul>
+<li>可以是交替访问</li>
+<li>磁盘设备</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>虚拟
+<ul>
+<li>虚拟处理器
+<ul>
+<li>多道程序并发执行</li>
+</ul>
+</li>
+<li>虚拟内存
+<ul>
+<li>使用外存来扩充内存</li>
+</ul>
+</li>
+<li>虚拟外部设备
+<ul>
+<li>独占设备改为共享设备</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>异步
+<ul>
+<li>进程并发执行，每个进程的进度和完成时间不可预测，即异步执行。</li>
+<li>存在问题
+<ul>
+<li>对全局变量访问顺序不当会导致程序出错</li>
+</ul>
+</li>
+<li>但是要保证运行环境相同，即使在异步执行的情况下，结果要相同。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>提供的服务
+<ul>
+<li>计算机系统资源的管理者
+<ul>
+<li>处理机管理
+<ul>
+<li>谁来占用处理机</li>
+<li>实际上是对进程的管理</li>
+</ul>
+</li>
+<li>存储器管理
+<ul>
+<li>内存的分配与回收，地址映射，内存保护与共享，内存扩充</li>
+</ul>
+</li>
+<li>设备管理</li>
+<li>文件管理
+<ul>
+<li>信息的存储形式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>提供用户和计算机硬件之间的接口</li>
+<li>用作扩充机器
+<ul>
+<li>将裸机改造成实际使用的计算机</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="发展与分类">发展与分类</h3>
+<ul>
+<li>手工操作（无操作系统）</li>
+<li>批处理阶段
+<ul>
+<li>单道批处理</li>
+<li>多道批处理</li>
+</ul>
+</li>
+<li>分时操作系统</li>
+<li>实时操作系统
+<ul>
+<li>硬实时</li>
+<li>软实时</li>
+</ul>
+</li>
+<li>网络操作系统</li>
+<li>分布式操作系统</li>
+</ul>
+<h3 id="运行环境">运行环境</h3>
+<ul>
+<li>内核态 vs 用户态
+<ul>
+<li>举例：查账单</li>
+<li>通过什么方式
+<ul>
+<li>系统调用</li>
+<li>发生中断</li>
+<li>发生错误状态</li>
+<li>用户程序企图执行特权指令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>中断 vs 异常
+<ul>
+<li>区别：中断源不同，举例：吃饭</li>
+<li>中断的处理过程</li>
+</ul>
+</li>
+<li>系统调用
+<ul>
+<li>用户程序调用资源的唯一方式</li>
+</ul>
+</li>
+</ul>
+<h3 id="体系结构">体系结构</h3>
+<h2 id="第二章">第二章</h2>
+<h3 id="进程与线程">进程与线程</h3>
+<ul>
+<li>为什么要进入进程
+<ul>
+<li>多道程序设计下，异步并发执行，为了更好描述和控制这种并发，引入了进程的概念</li>
+</ul>
+</li>
+<li>进程的概念
+<ul>
+<li>进程是进程实体的运行过程，是系统进行资源分配和调度的一个基本单位</li>
+<li>进程映象（进程实体）（静止）
+<ul>
+<li>程序段
+<ul>
+<li>可以被多个进程共享，即多个进程可以运行同一程序</li>
+</ul>
+</li>
+<li>相关数据段
+<ul>
+<li>可以是原始数据，可以是中间数据，可以是最终数据</li>
+</ul>
+</li>
+<li>PCB
+<ul>
+<li>常驻内存，进程存在的唯一标志</li>
+<li>组织形式
+<ul>
+<li>链接方式</li>
+<li>索引方式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程vs程序</li>
+<li>进程相关
+<ul>
+<li>进程的状态与转换
+<ul>
+<li>画图</li>
+</ul>
+</li>
+<li>进程控制
+<ul>
+<li>使用原语
+<ul>
+<li>进程创建</li>
+<li>进程终止</li>
+<li>进程阻塞和唤醒</li>
+<li>进程切换
+<ul>
+<li>进程切换vs处理机模式切换</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程通信
+<ul>
+<li>共享存储</li>
+<li>消息传递
+<ul>
+<li>发送消息和接收消息两个原语</li>
+<li>方式
+<ul>
+<li>直接通信方式</li>
+<li>间接通信方式
+<ul>
+<li>信箱通信方式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>管道通信
+<ul>
+<li>管道：共享文件</li>
+<li>管道和文件
+<ul>
+<li>管道的大小是由限制的，故可能会满</li>
+<li>读进程可能比写进程快</li>
+</ul>
+</li>
+<li>管道的特点
+<ul>
+<li>半双工：同一时刻只能单向传输，双向传输需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程 vs 线程</li>
+</ul>
+<h3 id="处理机调度">处理机调度</h3>
+<ul>
+<li>为什么要引入处理机调度</li>
+<li>处理机调度的基本概念</li>
+<li>时机</li>
+<li>典型的调度算法</li>
+</ul>
+<h3 id="进程同步与互斥">进程同步与互斥</h3>
+<h3 id="死锁">死锁</h3>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://WhiteBlacken.github.io/post/android-wen-jian/">
+                  <h3 class="post-title">
+                    Android文件
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
