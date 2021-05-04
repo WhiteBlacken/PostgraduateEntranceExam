@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>第一次课程提纲 | Blog_qxy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1620128179267">
+<link rel="stylesheet" href="https://WhiteBlacken.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="从hello程序开始
+#include &lt;stdio.h&gt;
+int main() {
+	printf(&quot;hello world\n&quot;);
+	return 0;
+}
+
+
+
+存储形式：ASCII码，字与字节
+最终..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://WhiteBlacken.github.io/">
+        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1620128179267" class="site-logo">
+        <h1 class="site-title">Blog_qxy</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      学习ing
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://WhiteBlacken.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">第一次课程提纲</h2>
+            <div class="post-date">2021-05-04</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="从hello程序开始">从hello程序开始</h1>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+	printf(&quot;hello world\n&quot;);
+	return 0;
+}
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://WhiteBlacken.github.io//post-images/1620108824209.jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>存储形式：ASCII码，字与字节</li>
+<li>最终形式</li>
+<li>程序若想运行，是否一定要调入内存？
+<ul>
+<li>进程的五态图
+<ul>
+<li>创建：PCB</li>
+<li>就绪态：如何变成运行态？
+<ul>
+<li>处理机调度
+<ul>
+<li>为什么要进行处理机调度？</li>
+<li>调度的层次</li>
+<li>处理机调度的有哪些类型？</li>
+<li>常见的调度算法？
+<ul>
+<li>先来先服务</li>
+<li>短作业优先</li>
+<li>优先级算法</li>
+<li>高响应比</li>
+<li>时间片轮转
+<ul>
+<li>抢占式？非抢占式？</li>
+<li>这样做有什么好处？</li>
+<li>时间片过长？时间片过短？</li>
+<li>引入中断？
+<ul>
+<li>中断与异常？</li>
+<li>为什么引入与中断？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多级反馈队列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程并发执行带来的问题
+<ul>
+<li>需要调入内存，而内存有限
+<ul>
+<li>七态图</li>
+</ul>
+</li>
+<li>死锁
+<ul>
+<li>产生的必要条件</li>
+<li>处理方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>hello程序的运行<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620115984964.png" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620116664282.jpg" alt="" loading="lazy">
+<ul>
+<li>操作系统的四个特征
+<ul>
+<li>并发</li>
+<li>虚拟
+<ul>
+<li>虚拟处理器</li>
+<li>虚拟存储器
+<ul>
+<li>局部性原理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>异步
+<ul>
+<li>为什么引入进程同步？
+<ul>
+<li>进程间制约关系
+<ul>
+<li>直接制约关系</li>
+<li>间接制约关系
+<ul>
+<li>准则</li>
+<li>实现临界区互斥的基本方法
+<ul>
+<li>软件
+<ul>
+<li>四种方法评价</li>
+</ul>
+</li>
+<li>硬件
+<ul>
+<li>主要解决一气呵成问题</li>
+<li>原语？</li>
+</ul>
+</li>
+<li>信号量
+<ul>
+<li>p,v/wait,signal</li>
+<li>类型
+<ul>
+<li>整型信号量</li>
+<li>记录型信号量</li>
+</ul>
+</li>
+<li>作用
+<ul>
+<li>实现同步</li>
+<li>实现互斥</li>
+</ul>
+</li>
+<li>经典同步问题<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620120033333.JPG" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620120039387.JPG" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620127605708.JPG" alt="" loading="lazy"><br>
+改进？<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620128145688.JPG" alt="" loading="lazy"><br>
+吸烟者问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>共享
+<ul>
+<li>类型
+<ul>
+<li>互斥共享</li>
+<li>同时共享</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://WhiteBlacken.github.io/post/bian-xie-cao-zuo-xi-tong-zhi-lu/">
+                  <h3 class="post-title">
+                    编写操作系统之路
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

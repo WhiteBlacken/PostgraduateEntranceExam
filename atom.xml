@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://WhiteBlacken.github.io/</id>
     <title>Blog_qxy</title>
-    <updated>2021-04-28T03:53:36.415Z</updated>
+    <updated>2021-05-04T11:36:27.090Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://WhiteBlacken.github.io/"/>
     <link rel="self" href="https://WhiteBlacken.github.io/atom.xml"/>
@@ -10,6 +10,412 @@
     <logo>https://WhiteBlacken.github.io/images/avatar.png</logo>
     <icon>https://WhiteBlacken.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blog_qxy</rights>
+    <entry>
+        <title type="html"><![CDATA[第一次课程提纲]]></title>
+        <id>https://WhiteBlacken.github.io/post/di-yi-ci-ke-cheng-ti-gang/</id>
+        <link href="https://WhiteBlacken.github.io/post/di-yi-ci-ke-cheng-ti-gang/">
+        </link>
+        <updated>2021-05-04T06:08:29.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="从hello程序开始">从hello程序开始</h1>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+	printf(&quot;hello world\n&quot;);
+	return 0;
+}
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://WhiteBlacken.github.io//post-images/1620108824209.jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>存储形式：ASCII码，字与字节</li>
+<li>最终形式</li>
+<li>程序若想运行，是否一定要调入内存？
+<ul>
+<li>进程的五态图
+<ul>
+<li>创建：PCB</li>
+<li>就绪态：如何变成运行态？
+<ul>
+<li>处理机调度
+<ul>
+<li>为什么要进行处理机调度？</li>
+<li>调度的层次</li>
+<li>处理机调度的有哪些类型？</li>
+<li>常见的调度算法？
+<ul>
+<li>先来先服务</li>
+<li>短作业优先</li>
+<li>优先级算法</li>
+<li>高响应比</li>
+<li>时间片轮转
+<ul>
+<li>抢占式？非抢占式？</li>
+<li>这样做有什么好处？</li>
+<li>时间片过长？时间片过短？</li>
+<li>引入中断？
+<ul>
+<li>中断与异常？</li>
+<li>为什么引入与中断？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多级反馈队列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程并发执行带来的问题
+<ul>
+<li>需要调入内存，而内存有限
+<ul>
+<li>七态图</li>
+</ul>
+</li>
+<li>死锁
+<ul>
+<li>产生的必要条件</li>
+<li>处理方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>hello程序的运行<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620115984964.png" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620116664282.jpg" alt="" loading="lazy">
+<ul>
+<li>操作系统的四个特征
+<ul>
+<li>并发</li>
+<li>虚拟
+<ul>
+<li>虚拟处理器</li>
+<li>虚拟存储器
+<ul>
+<li>局部性原理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>异步
+<ul>
+<li>为什么引入进程同步？
+<ul>
+<li>进程间制约关系
+<ul>
+<li>直接制约关系</li>
+<li>间接制约关系
+<ul>
+<li>准则</li>
+<li>实现临界区互斥的基本方法
+<ul>
+<li>软件
+<ul>
+<li>四种方法评价</li>
+</ul>
+</li>
+<li>硬件
+<ul>
+<li>主要解决一气呵成问题</li>
+<li>原语？</li>
+</ul>
+</li>
+<li>信号量
+<ul>
+<li>p,v/wait,signal</li>
+<li>类型
+<ul>
+<li>整型信号量</li>
+<li>记录型信号量</li>
+</ul>
+</li>
+<li>作用
+<ul>
+<li>实现同步</li>
+<li>实现互斥</li>
+</ul>
+</li>
+<li>经典同步问题<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620120033333.JPG" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620120039387.JPG" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620127605708.JPG" alt="" loading="lazy"><br>
+改进？<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620128145688.JPG" alt="" loading="lazy"><br>
+吸烟者问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>共享
+<ul>
+<li>类型
+<ul>
+<li>互斥共享</li>
+<li>同时共享</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[编写操作系统之路]]></title>
+        <id>https://WhiteBlacken.github.io/post/bian-xie-cao-zuo-xi-tong-zhi-lu/</id>
+        <link href="https://WhiteBlacken.github.io/post/bian-xie-cao-zuo-xi-tong-zhi-lu/">
+        </link>
+        <updated>2021-04-28T03:59:22.000Z</updated>
+        <content type="html"><![CDATA[<p>1</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CSAPP]]></title>
+        <id>https://WhiteBlacken.github.io/post/csapp/</id>
+        <link href="https://WhiteBlacken.github.io/post/csapp/">
+        </link>
+        <updated>2021-04-28T03:54:58.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="前置知识">前置知识</h1>
+<ul>
+<li>源程序到可执行程序
+<ul>
+<li><img src="https://WhiteBlacken.github.io//post-images/1619759005744.jpg" alt="" loading="lazy"></li>
+<li>预处理器：读取系统头文件的内容，直接插入程序文本  .c -&gt;.i</li>
+<li>编译器：将文本文件.i翻译为.s，这是一个汇编语言程序
+<ul>
+<li>汇编语言每条语句（出去mian，ret之类的）描述了一条低级机器语言指令</li>
+<li>为不同高级语言提供通用的输出语句</li>
+</ul>
+</li>
+<li>汇编：将汇编语言翻译为机器语言</li>
+<li>链接：比如hello调用了printf函数（存在于标准c库中），printf函数存在于一个名为printf.o的单独的预编译好的目标文件，通过连接器将printf.o和hello.o合并，得到可执行文件</li>
+</ul>
+</li>
+<li>冯诺依曼计算机
+<ul>
+<li><img src="https://WhiteBlacken.github.io//post-images/1619758194035.png" alt="" loading="lazy"></li>
+<li>将计算机过程描述为许多条指令按照一定顺序组成的程序，并放入存储器保存</li>
+<li>指令和数据均采用二进制进行存储</li>
+<li>以运算器和控制器为中心</li>
+<li>指令由操作码和地址码组成</li>
+</ul>
+</li>
+<li>典型系统的硬件组成
+<ul>
+<li><img src="https://WhiteBlacken.github.io//post-images/1619759014339.jpg" alt="" loading="lazy"></li>
+<li>总线
+<ul>
+<li>贯穿系统的一组电子管道</li>
+<li>携带信息字节并负责在各个部件间传递</li>
+<li>通常涉及成传送定长的字节块（即字）</li>
+</ul>
+</li>
+<li>I/O设备
+<ul>
+<li>系统与外部世界联系的通道</li>
+<li>一般包括
+<ul>
+<li>用户输入的键盘和鼠标</li>
+<li>用户输出的显示屏</li>
+<li>长期（对应“暂时”的内存）存储数据和程序磁盘驱动器</li>
+</ul>
+</li>
+<li>每个I/O设备通过控制器或适配器与I/O总线相连
+<ul>
+<li>控制器与适配器封装方式不同，功能都是在I/O总线和I/O设备间传递信息
+<ul>
+<li>控制器：I/O设备本身或者系统主板上的芯片组</li>
+<li>适配器：插在主板插槽上的一张卡</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>主存
+<ul>
+<li>临时存储设备
+<ul>
+<li>在处理器执行程序时，用来存放程序和程序处理的数据，有DRAM芯片组成
+<ul>
+<li>DRAM：断电数据消失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>处理器
+<ul>
+<li>中央处理单元，解释（执行）存储在主存中指令的引擎</li>
+<li>核心是PC：程序计数器，任何时刻都指向主存中某条指令的地址</li>
+<li>从系统通电开始，处理器不断执行pc指向的指令，再更新pc，使其指向下一条</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>操作系统管理硬件
+<ul>
+<li>
+<p>hello程序并无法直接访问键盘、显示屏、磁盘或者主存，需要依赖操作系统提供的服务</p>
+</li>
+<li>
+<p>可以把操作系统看作是应用程序和硬件之间插入的一层软件</p>
+</li>
+<li>
+<p>操作系统两个基本功能</p>
+<ul>
+<li>防止硬件被失控的应用程序滥用</li>
+<li>向硬件程序提供简单一致的机制来控制各不相同的低级硬件设备</li>
+</ul>
+</li>
+<li>
+<p>如何实现两个功能？</p>
+<ul>
+<li>通过基本的抽象概念</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>抽象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>进程</td>
+<td>处理器、I/O设备、主存</td>
+</tr>
+<tr>
+<td>虚拟内存</td>
+<td>主存、磁盘I/O设备</td>
+</tr>
+<tr>
+<td>文件</td>
+<td>I/O设备</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>并发和并行的三个层次
+<ul>
+<li>线程级并发
+<ul>
+<li>模拟出来的，处理器在多个任务间雀环</li>
+</ul>
+</li>
+<li>指令级并行
+<ul>
+<li>流水性的应用</li>
+</ul>
+</li>
+<li>单指令、多数据并行
+<ul>
+<li>并行的对8对单精度浮点数做加法指令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>抽象</li>
+<li>CPU利用率，CPU与设备的速度差异，如何安排两个任务：计算密集型，I/O密集型</li>
+</ul>
+<h1 id="从进程开始">从进程开始</h1>
+<ul>
+<li>进程是什么？
+<ul>
+<li>进程操作系统对一个正在运行的程序的一种抽象，一个系统可以同时运行多个进程，每个进程都好像在独占地使用设备。</li>
+</ul>
+</li>
+<li>上下文切换
+<ul>
+<li>并发执行通过处理器在进程间的切换来实现，实现交替执行的机制称作上下文切换</li>
+<li>上下文：操作系统保持跟踪进程运行所需的所有状态信息
+<ul>
+<li>PC</li>
+<li>寄存器文件的当前值</li>
+<li>主存中的内容</li>
+</ul>
+</li>
+<li>对于单核CPU来说，任意时刻只能执行一个进程的代码，所以操作系统要决定控制权的归属
+<ul>
+<li>过程
+<ul>
+<li>保存当前进程的上下文</li>
+<li>恢复新进程的上下文</li>
+<li>将控制权传递给新进程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程切换在操作系统内核管理的</li>
+</ul>
+</li>
+<li>引入线程
+<ul>
+<li>一个进程可以由多个称为线程的执行单元组成，每个线程都运行在进程的上下文中，共享代码和全局数据</li>
+<li>多线程之间相对多进程之间更容易共享数据，线程一般来说比进程更高效</li>
+</ul>
+</li>
+<li>进程提供给应用程序的两个抽象
+<ul>
+<li>独立的逻辑控制流
+<ul>
+<li>假象：程序独占的使用处理器</li>
+</ul>
+</li>
+<li>私有的地址空间
+<ul>
+<li>假象：程序独占的使用内存系统
+<ul>
+<li>进程为每个程序提供它自己的私有地址空间，和这个空间中某个地址相关联的那个内存字节是不能被其他进程读或者写的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://WhiteBlacken.github.io//post-images/1619764590492.jpg" alt="" loading="lazy">
+<ul>
+<li>上下文切换</li>
+<li>系统调用</li>
+</ul>
+</li>
+<li>进程通信
+<ul>
+<li>因为进程有独立的虚拟地址空间，想要和其他流通信，控制流必须使用某种显示的进程间通信（interprocess communication）机制，安全但是开销很高</li>
+</ul>
+</li>
+<li>死锁</li>
+</ul>
+<h1 id="存储管理">存储管理</h1>
+<ul>
+<li>从程序执行的数据流看高速缓存（结合典型硬件组成）
+<ul>
+<li>hello程序从输入到执行，经过了多次复制传输，造成了大量的时间开销，减少这种开销是必要的。</li>
+<li>局部性原理+机械原理-&gt;通过高速缓存可以提高系统性能</li>
+</ul>
+</li>
+<li>存储设备的层次结构</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[操作系统]]></title>
         <id>https://WhiteBlacken.github.io/post/cao-zuo-xi-tong/</id>
