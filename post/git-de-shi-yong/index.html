@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Git的使用 | Blog_qxy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://WhiteBlacken.github.io//favicon.ico?v=1620298723711">
+<link rel="stylesheet" href="https://WhiteBlacken.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="本地使用
+初始化git仓库
+
+git init
+
+查看
+
+git status
+
+操作暂存区
+
+git add xxx.xxx
+git add -u
+
+只添加被跟踪的文件
+
+
+git rm --cache xxx.xxx
+
+提交（只操作暂存..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://WhiteBlacken.github.io/">
+        <img src="https://WhiteBlacken.github.io//images/avatar.png?v=1620298723711" class="site-logo">
+        <h1 class="site-title">Blog_qxy</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      学习ing
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://WhiteBlacken.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Git的使用</h2>
+            <div class="post-date">2021-05-06</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="本地使用">本地使用</h1>
+<h2 id="初始化git仓库">初始化git仓库</h2>
+<ul>
+<li>git init</li>
+</ul>
+<h2 id="查看">查看</h2>
+<ul>
+<li>git status</li>
+</ul>
+<h2 id="操作暂存区">操作暂存区</h2>
+<ul>
+<li>git add xxx.xxx</li>
+<li>git add -u
+<ul>
+<li>只添加被跟踪的文件</li>
+</ul>
+</li>
+<li>git rm --cache xxx.xxx</li>
+</ul>
+<h2 id="提交只操作暂存区的文件">提交（只操作暂存区的文件）</h2>
+<ul>
+<li>git commit -m “first commit”</li>
+<li>git commit（常用）</li>
+</ul>
+<h2 id="工作区向版本库对齐">工作区向版本库对齐</h2>
+<ul>
+<li>git reset --hard</li>
+</ul>
+<h1 id="远端仓库">远端仓库</h1>
+<h2 id="设置">设置</h2>
+<ul>
+<li>git remote add origin 地址</li>
+</ul>
+<h2 id="查看-2">查看</h2>
+<ul>
+<li>git remote -v</li>
+</ul>
+<h2 id="本地提交到github">本地提交到github</h2>
+<ul>
+<li>git push origin -u origin main</li>
+</ul>
+<h1 id="浏览工作区状态与历史">浏览工作区状态与历史</h1>
+<ul>
+<li>git status -u
+<ul>
+<li>no -只显示已经跟踪的文件</li>
+<li>normal -显示没有被跟踪的文件</li>
+<li>all -未跟踪的文件夹内的文件<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620287048732.JPG" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h1 id="新建文件夹">新建文件夹</h1>
+<ul>
+<li>mkdir newfolder</li>
+</ul>
+<h1 id="操作文件">操作文件</h1>
+<ul>
+<li>基本信息
+<ul>
+<li>git config --global user.name “your name”</li>
+<li>git config --global user.email “your email”</li>
+<li>--global vs --local（当前工程）</li>
+</ul>
+</li>
+<li>git add
+<ul>
+<li>filename</li>
+<li>.</li>
+<li>-u
+<ul>
+<li>修改（即已托管）</li>
+</ul>
+</li>
+<li>-i
+<ul>
+<li>交互式（其他为批处理）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>git commit
+<ul>
+<li>空</li>
+<li>-a
+<ul>
+<li>add+commit（被跟踪的文件的才会执行）</li>
+</ul>
+</li>
+<li>-m msg</li>
+</ul>
+</li>
+</ul>
+<h1 id="当前工作区搜索">当前工作区搜索</h1>
+<ul>
+<li>git grep -n content
+<ul>
+<li>工作区中查找</li>
+</ul>
+</li>
+<li>git grep --untracked -n content</li>
+</ul>
+<h1 id="历史搜索中查找">历史搜索中查找</h1>
+<ul>
+<li>git log -G
+<ul>
+<li>从历史修改中查找</li>
+</ul>
+</li>
+<li>git log -S
+<ul>
+<li>显示命中次数</li>
+</ul>
+</li>
+</ul>
+<h1 id="删除或移动文件">删除或移动文件</h1>
+<ul>
+<li>git rm</li>
+<li>git mv</li>
+</ul>
+<h1 id="分支">分支</h1>
+<ul>
+<li>查看
+<ul>
+<li>git branch</li>
+<li>git branch -avv</li>
+</ul>
+</li>
+<li>新建分支
+<ul>
+<li>git branch branchname</li>
+<li>git checkout branchname</li>
+<li>git checkout -b branchname
+<ul>
+<li>新建+切换</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>推送分支
+<ul>
+<li>git push origin branch：branch</li>
+<li>git push origin：branch
+<ul>
+<li>删除方法<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620290467737.JPG" alt="" loading="lazy"></li>
+</ul>
+</li>
+<li>两种方法
+<ul>
+<li><img src="https://WhiteBlacken.github.io//post-images/1620289636575.JPG" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="修改">修改</h1>
+<figure data-type="image" tabindex="2"><img src="https://WhiteBlacken.github.io//post-images/1620297782519.JPG" alt="" loading="lazy"></figure>
+<ul>
+<li>修改历史提交
+<ul>
+<li>git revert commitId</li>
+</ul>
+</li>
+<li>修改上一个提交
+<ul>
+<li>git commit --amend</li>
+<li>git commit --amend --author=”Author name“</li>
+</ul>
+</li>
+<li>修改前几次提交
+<ul>
+<li>git rebase -i （交互式）</li>
+</ul>
+</li>
+</ul>
+<h1 id="使用">使用</h1>
+<ul>
+<li>寻找写错代码的人
+<ul>
+<li>git blame filename</li>
+</ul>
+</li>
+<li>找回丢失的提交
+<ul>
+<li>git reflog</li>
+<li>git checkout hashcode</li>
+</ul>
+</li>
+<li>git瘦身
+<ul>
+<li>git gc</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://WhiteBlacken.github.io/post/di-yi-ci-ke-cheng-ti-gang/">
+                  <h3 class="post-title">
+                    第一次课程提纲
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
