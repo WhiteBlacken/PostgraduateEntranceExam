@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://WhiteBlacken.github.io/</id>
     <title>Blog_qxy</title>
-    <updated>2021-05-06T11:00:00.735Z</updated>
+    <updated>2021-05-14T03:28:55.688Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://WhiteBlacken.github.io/"/>
     <link rel="self" href="https://WhiteBlacken.github.io/atom.xml"/>
@@ -10,6 +10,97 @@
     <logo>https://WhiteBlacken.github.io/images/avatar.png</logo>
     <icon>https://WhiteBlacken.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blog_qxy</rights>
+    <entry>
+        <title type="html"><![CDATA[女朋友不在的日子里...]]></title>
+        <id>https://WhiteBlacken.github.io/post/nu-peng-you-bu-zai-de-ri-zi-li/</id>
+        <link href="https://WhiteBlacken.github.io/post/nu-peng-you-bu-zai-de-ri-zi-li/">
+        </link>
+        <updated>2021-05-13T11:50:20.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="起因和说明">起因和说明</h1>
+<ul>
+<li>女朋友和室友一起出去玩，因为平时一直和女朋友在一起，而且平时有2h左右的时间也花在女朋友的室友的英语辅导上。通常情况下，女朋友不在我都是整天在打游戏，在宿舍做个宅男，不过最近心境可能有些变化，也有一些课程要带，不可能像以前一样整天打游戏，顺便记录也起到一些监督作用。而且即使整天宅，也可以写下来，验证一下没有女朋友在身边老齐是多么的颓（偷笑）。老白在2021/5/13日下午6.正式出发。记录的时长并不准确，随心写。</li>
+</ul>
+<h1 id="2021513">2021/5/13</h1>
+<ul>
+<li>和学弟学妹讨论了一下专业课 40m<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620906787933.png" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620906844927.png" alt="" loading="lazy"></li>
+<li>玩手机，刷知乎 40m</li>
+<li>和室友聊了一下研究生去他家蹭饭的路线，惊奇的发现离得很近，公交车直达</li>
+<li><img src="https://WhiteBlacken.github.io//post-images/1620906971464.png" alt="" loading="lazy"></li>
+<li>改论文的材料（听屁股王的歌（不是））<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620907033661.JPG" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620907122081.jpg" alt="" loading="lazy"></li>
+<li>带学弟专业课+课后讨论 100m<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620913489677.JPG" alt="" loading="lazy"></li>
+<li>看了“没毛”的关羽<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620923440624.jpg" alt="" loading="lazy"></li>
+<li>改论文，赶在1.30交给了指导老师（完成啦！）<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620923400949.jpg" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620926692029.png" alt="" loading="lazy"><br>
+<img src="https://WhiteBlacken.github.io//post-images/1620926854445.png" alt="" loading="lazy"></li>
+<li>2.20 睡觉</li>
+</ul>
+<h1 id="2021514">2021/5/14</h1>
+<ul>
+<li>9.25起床</li>
+<li>和子义去喝胡辣汤<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620962904179.jpg" alt="" loading="lazy"></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Android音视频开发]]></title>
+        <id>https://WhiteBlacken.github.io/post/android-yin-shi-pin-kai-fa/</id>
+        <link href="https://WhiteBlacken.github.io/post/android-yin-shi-pin-kai-fa/">
+        </link>
+        <updated>2021-05-06T11:15:37.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="视频文件">视频文件</h1>
+<figure data-type="image" tabindex="1"><img src="https://WhiteBlacken.github.io//post-images/1620300137734.JPG" alt="" loading="lazy"></figure>
+<ul>
+<li>编码
+<ul>
+<li>去除掉冗余信息</li>
+<li>分类
+<ul>
+<li>空间冗余</li>
+<li>时间冗余</li>
+<li>信息熵冗余
+<ul>
+<li>编码冗余</li>
+</ul>
+</li>
+<li>知识冗余</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPB帧
+<ul>
+<li>I帧关键帧</li>
+<li>p帧前向预测编码帧</li>
+<li>B帧前后预测编码帧<br>
+·<img src="https://WhiteBlacken.github.io//post-images/1620300611843.JPG" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h1 id="视频编码">视频编码</h1>
+<ul>
+<li>ITU-T
+<ul>
+<li>h.261/h.263/h.264</li>
+</ul>
+</li>
+<li>MPEG
+<ul>
+<li>MPEG1/MPEG2/MPEG4 AVC<br>
+<img src="https://WhiteBlacken.github.io//post-images/1620301047530.JPG" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h1 id="yuv-vs-rgb">YUV vs RGB</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git的使用]]></title>
         <id>https://WhiteBlacken.github.io/post/git-de-shi-yong/</id>
